@@ -1,9 +1,9 @@
 <div style="background-color: beige; margin-bottom: 20px;padding: 20px;">
     <form (ngSubmit)="submit()" #forma="ngForm">
         <label for="name"><b>Nombre de pila y apellido</b></label>
-        <input type="text" #name="ngModel" [(ngModel)]="register.name" placeholder="Introducir el nombre" name="name" minlength="5" class="form-control" required [ngClass]="{'is-valid': !name.invalid, 'is-invalid':name.invalid}">
+        <input type="text" #name="ngModel" [(ngModel)]="register.name" placeholder="Introducir el nombre" name="name" minlength="5" class="form-control" required [ngClass]="{'is-valid': !name.invalid, 'is-invalid':name.invalid && submited}">
 
-            <div class="invalid-feedback" *ngIf="name.invalid && (name.dirty || name.touched)">
+            <div class="invalid-feedback" *ngIf="name.invalid && (name.dirty || name.touched) && submited">
                 <div *ngIf="name.errors?.['minlength']">
                     Introducir un nobre de pila y apellidos con 5 caracteres
                 </div>
@@ -13,18 +13,18 @@
             </div>
 
             <label for="email"><b>Email</b></label>
-            <input type="email" #email="ngModel" [(ngModel)]="register.email" placeholder="Introducir el email" name="email" minlength="5" class="form-control" required [ngClass]="{'is-valid': !email.invalid, 'is-invalid':email.invalid}">
+            <input type="email" #email="ngModel" [(ngModel)]="register.email" placeholder="Introducir el email" name="email" minlength="5" class="form-control" required [ngClass]="{'is-valid': !email.invalid, 'is-invalid':email.invalid && submited}">
     
-            <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched) && submited">
                 <div *ngIf="email.errors?.['required']">
                     Introducir un email valido
                 </div>
             </div>
 
             <label for="password"><b>Contraseña</b></label>
-            <input type="password" #password="ngModel" [(ngModel)]="register.password" placeholder="Introducir el password" name="password" minlength="5" class="form-control" required [ngClass]="{'is-valid': !password.invalid, 'is-invalid':password.invalid}">
+            <input type="password" #password="ngModel" [(ngModel)]="register.password" placeholder="Introducir el password" name="password" minlength="5" class="form-control" required [ngClass]="{'is-valid': !password.invalid, 'is-invalid':password.invalid && submited}">
     
-            <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched) && submited">
                 <div *ngIf="password.errors?.['minlength']">
                     Introducir un password valido
                 </div>
@@ -34,11 +34,11 @@
             </div>
 
             <label for="password"><b>Repetir Contraseña</b></label>
-            <input type="password" #repeatPass="ngModel" [(ngModel)]="register.repeatPass" placeholder="Introducir el repeatPass" name="repeatPass" minlength="5" class="form-control" required [ngClass]="{'is-valid': !repeatPass.invalid, 'is-invalid':repeatPass.invalid}">
+            <input type="password" #repeatPass="ngModel" [(ngModel)]="register.repeatPass" placeholder="Introducir el repeatPass" name="repeatPass" minlength="5" class="form-control" required [ngClass]="{'is-valid': !repeatPass.invalid, 'is-invalid':repeatPass.invalid && submited}">
     
-            <div class="invalid-feedback" *ngIf="repeatPass.invalid && (repeatPass.dirty || repeatPass.touched)">
+            <div class="invalid-feedback" *ngIf="repeatPass.invalid && (repeatPass.dirty || repeatPass.touched) && submited">
                  <div *ngIf="repeatPass.errors?.['required']">
-                    Introducir un repeatPass valido
+                    Introducir un password valido
                 </div>
             </div>
 
