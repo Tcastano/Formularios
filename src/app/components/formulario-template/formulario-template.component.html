@@ -37,12 +37,17 @@
             <input type="password" #repeatPass="ngModel" [(ngModel)]="register.repeatPass" placeholder="Introducir el repeatPass" name="repeatPass" minlength="5" class="form-control" required [ngClass]="{'is-valid': !repeatPass.invalid, 'is-invalid':repeatPass.invalid}">
     
             <div class="invalid-feedback" *ngIf="repeatPass.invalid && (repeatPass.dirty || repeatPass.touched)">
-                <div *ngIf="repeatPass.errors?.['minlength']">
+                 <div *ngIf="repeatPass.errors?.['required']">
                     Introducir un repeatPass valido
                 </div>
-                <div *ngIf="repeatPass.errors?.['required']">
-                    Introducir un repeatPass valido
-                </div>
+            </div>
+
+            <div *ngIf="password.value!= repeatPass.value" style="color: red;">
+                Las contraseñas no coinciden
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit "> Register</button>
             </div>
     </form>
 </div>
