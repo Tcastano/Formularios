@@ -20,11 +20,13 @@ export class FormularioTemplateComponent {
     repeatPass:""
   };
 
+  submited = false;
   constructor(){
 
   }
 
   submit(){
-    
+    console.log("ejecutando submit");
+    this.submited=true;
   }
 }
