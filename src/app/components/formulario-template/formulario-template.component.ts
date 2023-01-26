@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 interface IRegistroForm{
   name:string;
   email:string;
+  dni:string;
   password:string;
   repeatPass:string;
 }
@@ -16,6 +17,7 @@ export class FormularioTemplateComponent {
   register:IRegistroForm ={
     name:"",
     email:"",
+    dni:"",
     password:"",
     repeatPass:""
   };

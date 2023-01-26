@@ -12,6 +12,16 @@
                 </div>
             </div>
 
+            <label for="dni"><b>Dni</b></label>
+            <input type="text" #dni="ngModel" [(ngModel)]="register.dni" placeholder="Introducir el dni" name="dni" minlength="5" class="form-control" required [ngClass]="{'is-valid': !dni.invalid, 'is-invalid':dni.invalid && submited}">
+    
+                <div class="invalid-feedback" *ngIf="dni.invalid && (dni.dirty || dni.touched) && submited">
+                    <div *ngIf="name.errors?.['minlength']">
+                       Introducir minimo 8 digitos
+                    </div>
+                </div>
+    
+
             <label for="email"><b>Email</b></label>
             <input type="email" #email="ngModel" [(ngModel)]="register.email" placeholder="Introducir el email" name="email" minlength="5" class="form-control" required [ngClass]="{'is-valid': !email.invalid, 'is-invalid':email.invalid && submited}">
     
